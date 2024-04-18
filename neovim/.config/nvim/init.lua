@@ -17,7 +17,3 @@ local opts = {}
 require("vim-options")
 -- lazy package manager
 require("lazy").setup("plugins")
-
--- theme
-require("nordic").setup()
-vim.cmd.colorscheme("nordic")
