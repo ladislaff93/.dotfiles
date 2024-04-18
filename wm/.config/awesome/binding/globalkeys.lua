@@ -159,7 +159,7 @@ function _M.get()
         {},
         'XF86MonBrightnessUp',
         function()
-        awful.spawn('xbacklight -inc 10')
+        awful.spawn('brightnessctl s +10%')
         end,
         {description = '+10%', group = 'hotkeys'}
     ),
@@ -167,7 +167,7 @@ function _M.get()
         {},
         'XF86MonBrightnessDown',
         function()
-        awful.spawn('xbacklight -dec 10')
+        awful.spawn('brightnessctl s 10%-')
         end,
         {description = '-10%', group = 'hotkeys'}
     ),

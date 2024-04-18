@@ -8,7 +8,7 @@ local filesystem = require('gears.filesystem')
 return {
   -- List of apps to start by default on some actions
   default = {
-      terminal = 'alacritty',
+      terminal = 'kitty',
 --    rofi = rofi_command,
       lock = 'i3lock-fancy -p',
       screenshot = 'flameshot screen -p ~/Pictures',
