@@ -13,8 +13,8 @@ dofile(theme_path .. "titlebar.lua")
 dofile(theme_path .. "layouts.lua")
 
 theme.wallpaper          = theme_path .. "background.png"
-theme.awesome_icon       = theme_path .. "launcher/logo20_debian.png"
-theme.awesome_subicon    = theme_path .. "launcher/logo20_debian.png"
+theme.awesome_icon       = theme_path .. "launcher/win98.png"
+theme.awesome_subicon    = theme_path .. "launcher/win98.png"
 
 return theme
 

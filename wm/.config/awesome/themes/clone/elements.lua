@@ -6,8 +6,8 @@ local dpi = xresources.apply_dpi
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
-theme.font          = "Terminus 8" -- "Tamsyn 10" -- "Sans 8"
-theme.taglist_font  = "Inconsolata Medium 9"
+theme.font          = "JetBrainsMono Nerd Font Mono Regular 9"--"Terminus 8" -- "Tamsyn 10" -- "Sans 8"
+theme.taglist_font  = "JetBrainsMono Nerd Font Mono Bold 8"--"Inconsolata Medium 9"
 
 theme.bg_normal     = colors.color['base10']     .. "cc"
 theme.bg_focus      = colors.color['base00']    .. "cc"
