@@ -152,6 +152,6 @@ export ENV="$PATH:/var/lib/flatpak/exports/share"
 export ENV="$PATH:/home/ladislaff/.local/share/flatpak/exports/share"
 
 #export EDITOR='io.neovim.nvim'
-
+alias ts="./tmux-sessionazer"
 alias battery_level="sudo vi /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode"
 #alias nvim='io.neovim.nvim'
