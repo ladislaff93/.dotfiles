@@ -94,7 +94,7 @@ entry {
 	background-color: rgb(25, 41, 51);
 	vertical-align: 1;
 	padding:        12px;
-	font:            "Roboto medium 13";
+	font:           "JetBrainsMono Nerd Font Mono Regular 9";
 }
 
 element normal.normal {
