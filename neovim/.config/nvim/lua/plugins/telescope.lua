@@ -9,20 +9,6 @@ return {
       vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
       vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
       vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
-      local wk = require("which-key")
-      wk.register({
-        ["<leader>"] = {
-          f = {
-            name = "Telescope",
-            f = { "Find File" },
-            g = { "Live Grep" },
-            b = { "Buffers" },
-            r = { "Open Recent File" },
-            n = { "New File" },
-            h = { "Help" },
-          },
-        },
-      })
     end,
   },
   {

@@ -11,6 +11,5 @@ vim.cmd("set scrolloff=8")
 
 vim.cmd("imap kj <Esc>")
 vim.cmd("vmap kj <Esc>")
---vim.cmd("nnoremap <leader>n :Vex<CR>")
 
-vim.o.guifont = "Jetbrains Mono"
+vim.o.guifont = "JetBrainsMono Nerd Font Mono"
