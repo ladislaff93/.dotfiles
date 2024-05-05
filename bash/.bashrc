@@ -155,3 +155,4 @@ export ENV="$PATH:/home/ladislaff/.local/share/flatpak/exports/share"
 alias ts="./tmux-sessionazer"
 alias battery_level="sudo vi /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode"
 #alias nvim='io.neovim.nvim'
+source "$HOME/.sdkman/bin/sdkman-init.sh"
