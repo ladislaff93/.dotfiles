@@ -31,6 +31,17 @@ return {
         capabilities = capabilities,
       })
 
+      vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+        vim.lsp.diagnostic.on_publish_diagnostics,
+        {
+          virtual_text = false,
+          signs = true,
+          update_in_insert = false,
+          underline = true,
+        }
+      )
+
+      vim.keymap.set("n", "D", vim.diagnostic.open_float, {})
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
       vim.keymap.set("n", "gr", vim.lsp.buf.references, {})
