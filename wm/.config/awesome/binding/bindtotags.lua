@@ -29,18 +29,6 @@ function _M.get(globalkeys)
         {description = "view tag #"..i, group = "tag"}),
 
       --  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-      -- Toggle tag display.
-      -- awful.key({ modkey, "Control" }, "#" .. i + 9,
-      --   function ()
-      --     local screen = awful.screen.focused()
-      --     local tag = screen.tags[i]
-      --     if tag then
-      --       awful.tag.viewtoggle(tag)
-      --     end
-      --   end,
-      --   {description = "toggle tag #" .. i, group = "tag"}),
-      
-      --  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
       -- Move client to tag.
       awful.key({ modkey, "Shift" }, "#" .. i + 9,
         function ()
