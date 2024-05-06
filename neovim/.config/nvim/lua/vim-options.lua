@@ -13,3 +13,6 @@ vim.cmd("imap kj <Esc>")
 vim.cmd("vmap kj <Esc>")
 
 vim.o.guifont = "JetBrainsMono Nerd Font Mono"
+
+vim.cmd("nnoremap <CR> :noh<CR><CR>")
+
