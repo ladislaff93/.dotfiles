@@ -21,24 +21,25 @@ local _M = {}
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
 function _M.get()
-  local globalkeys = gears.table.join(
-    awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
-              {description="show help", group="awesome"}),
+      local globalkeys = gears.table.join(
+        awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
+          {description="show help", group="awesome"}),
 
-    awful.key({ modkey,           }, "j",
-        function ()
+        awful.key({ modkey,           }, "j",
+          function ()
             awful.client.focus.byidx( 1)
-        end,
-        {description = "focus next by index", group = "client"}
-    ),
-    awful.key({ modkey,           }, "k",
-        function ()
+          end,
+          {description = "focus next by index", group = "client"}
+        ),
+        awful.key({ modkey,           }, "k",
+          function ()
             awful.client.focus.byidx(-1)
-        end,
-        {description = "focus previous by index", group = "client"}
-    ),
-    awful.key({ modkey,           }, "w", function () RC.mainmenu:show() end,
-              {description = "show main menu", group = "awesome"}),
+          end,
+          {description = "focus previous by index", group = "client"}
+        ),
+        awful.key({ modkey,           }, "w", function () RC.mainmenu:show() end,
+          {description = "show main menu", group = "awesome"}),
+
 
     --   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
     -- Layout manipulation
@@ -61,14 +62,37 @@ function _M.get()
     --     end,
     --     {description = "go back", group = "client"}),
 
+
     --   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
-              {description = "open a terminal", group = "launcher"}),
+      {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
-              {description = "reload awesome", group = "awesome"}),
+      {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
-              {description = "quit awesome", group = "awesome"}),
+      {description = "quit awesome", group = "awesome"}),
+
+
+    --   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+    -- Custom programs
+
+    -- File Manager
+    awful.key({modkey}, 'e',
+      function()
+        awful.util.spawn(apps.default.files)
+      end,
+      {description = 'filebrowser', group = 'hotkeys'}
+    ),
+    -- Browser
+    awful.key(
+      {modkey},
+      'b',
+      function()
+        awful.util.spawn(apps.default.browser)
+      end,
+      {description = 'Open a browser', group = 'launcher'}
+    ),
+
 
     --   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
     -- Layout manipulation
@@ -101,16 +125,26 @@ function _M.get()
               end,
               {description = "restore minimized", group = "client"}),
 
+
     --   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
     -- Prompt
-            awful.key(
-            {modkey},
-            'r',
-            function()
+    awful.key(
+        {modkey},
+        'r',
+        function()
             awful.spawn('rofi -combi-modi window,drun -show combi -modi combi')
+        end,
+        {description = 'Main menu', group = 'awesome'}
+    ),
+
+    awful.key(
+        {modkey, "Shift"},
+            'l',
+            function()
+            awful.spawn('i3lock-fancy -gp')
             end,
             {description = 'Main menu', group = 'awesome'}
-        ),
+    ),
 
     awful.key({ modkey }, "x",
               function ()
@@ -122,6 +156,7 @@ function _M.get()
                   }
               end,
               {description = "lua execute prompt", group = "awesome"}),
+
 
     --   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
     -- Resize
@@ -146,11 +181,14 @@ function _M.get()
     awful.key({ modkey, "Shift"   }, "Right", 
               function () awful.client.moveresize( 20,   0,   0,   0) end),
 
+
     --   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
     -- Menubar
-    -- awful.key({ modkey }, "p", function() menubar.show() end,
-    --           {description = "show the menubar", group = "launcher"}),
-    --   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+    awful.key({ modkey }, "p", function() menubar.show() end,
+              {description = "show the menubar", group = "launcher"}),
+
+
+      -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
     -- Brightness
     awful.key(
         {},
@@ -173,7 +211,7 @@ function _M.get()
         {},
         'XF86AudioRaiseVolume',
         function()
-        awful.spawn('amixer -D pulse sset Master 5%+')
+        awful.spawn('amixer set Master 5%+')
         end,
         {description = 'volume up', group = 'hotkeys'}
     ),
@@ -181,7 +219,7 @@ function _M.get()
         {},
         'XF86AudioLowerVolume',
         function()
-        awful.spawn('amixer -D pulse sset Master 5%-')
+        awful.spawn('amixer set Master 5%-')
         end,
         {description = 'volume down', group = 'hotkeys'}
     ),
@@ -189,26 +227,10 @@ function _M.get()
         {},
         'XF86AudioMute',
         function()
-        awful.spawn('amixer -D pulse set Master 1+ toggle')
+        awful.spawn('amixer set Master 1+ toggle')
         end,
         {description = 'toggle mute', group = 'hotkeys'}
     ),
-    -- awful.key(
-    --     {},
-    --     'XF86AudioPlay',
-    --     function()
-    --     awful.spawn('amixer -D pulse set Master 1+ toggle')
-    --     end,
-    --     {description = 'toggle play/stop', group = 'hotkeys'}
-    -- ),
-    -- awful.key(
-    --     {},
-    --     'XF86AudioNext',
-    --     function()
-    --     --
-    --     end,
-    --     {description = 'toggle mute', group = 'hotkeys'}
-    -- ),
     awful.key(
         {},
         'XF86PowerOff',

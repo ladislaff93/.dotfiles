@@ -21,11 +21,11 @@ theme.fg_urgent     = colors.color['base0E']
 theme.fg_minimize   = colors.color['base07']
 
 theme.useless_gap   = dpi(3)
-theme.border_width  = dpi(0)
+theme.border_width  = dpi(1.5)
 
 theme.border_normal = colors.color['base10']   .. "cc"
-theme.border_focus  = colors.color['base0F']    .. "cc"
-theme.border_marked = colors.color['base0E'] .. "cc"
+theme.border_focus  = colors.color['base18']    .. "cc"
+-- theme.border_marked = colors.color['base0E'] .. "cc"
 
 -- There are other variable sets
 -- overriding the default one when
@@ -49,7 +49,7 @@ theme.tasklist_bg_focus  = colors.color['base18']   .. "88"
 -- theme.tasklist_fg_focus  = colors.color['base07']
 
 theme.titlebar_bg_normal = colors.color['base00']  -- .. "aa"
-theme.titlebar_bg_focus  = colors.color['base18']   .. "aa"
+theme.titlebar_bg_focus  = colors.color['base18'] .. "88"
 -- theme.titlebar_fg_focus  = colors.color['base10']  -- .. "aa"
 
 -- Generate taglist squares:

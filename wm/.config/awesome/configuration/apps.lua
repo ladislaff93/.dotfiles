@@ -14,10 +14,10 @@ return {
     screenshot = 'flameshot screen -p ~/Pictures',
     region_screenshot = 'flameshot gui -p ~/Pictures',
     delayed_screenshot = 'flameshot screen -p ~/Pictures -d 5000',
---    browser = 'brave',
+    browser = 'chrome',
 --    editor = 'gedit', -- gui text editor
 --    social = 'discord',
-    files = 'nautilus',
+    files = 'thunar',
   },
   -- List of apps to start once on start-up
   run_on_start_up = {
@@ -29,6 +29,9 @@ return {
     'xfce4-power-manager', -- Power manager
     'flameshot',
     './mullvad-gui',
+    '/usr/lib/geoclue-2.0/demos/agent',
+    'redshift-gtk',
+    '/usr/bin/xautolock -time 5 -locker /usr/bin/locker -detectsleep',
     -- Add applications that need to be killed between reloads
     -- to avoid multipled instances, inside the awspawn script
     '~/.config/awesome/configuration/awspawn' -- Spawn "dirty" apps that can linger between sessions
