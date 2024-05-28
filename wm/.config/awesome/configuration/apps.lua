@@ -14,7 +14,7 @@ return {
     screenshot = 'flameshot screen -p ~/Pictures',
     region_screenshot = 'flameshot gui -p ~/Pictures',
     delayed_screenshot = 'flameshot screen -p ~/Pictures -d 5000',
-    browser = 'chrome',
+    browser = 'google-chrome-stable',
 --    editor = 'gedit', -- gui text editor
 --    social = 'discord',
     files = 'thunar',
