@@ -11,6 +11,11 @@ return {
     local wk = require("which-key")
     wk.register({
       ["<leader>"] = {
+        d = {
+          name = "Debugger",
+          b = { "Toogle Breakpoint" },
+          c = { "Continue" },
+        },
         l = {
           name = "LazyGit",
           g = { "Toogle Lazy Git" }
