@@ -32,6 +32,7 @@ return {
     '/usr/lib/geoclue-2.0/demos/agent',
     'redshift-gtk',
     '/usr/bin/xautolock -time 5 -locker /usr/bin/locker -detectsleep',
+    '/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1',
     -- Add applications that need to be killed between reloads
     -- to avoid multipled instances, inside the awspawn script
     '~/.config/awesome/configuration/awspawn' -- Spawn "dirty" apps that can linger between sessions
