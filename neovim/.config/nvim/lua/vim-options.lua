@@ -8,6 +8,7 @@ vim.cmd("set number")
 vim.cmd("set relativenumber")
 vim.cmd("set smartindent")
 vim.cmd("set scrolloff=8")
+vim.cmd("set clipboard=unnamedplus")
 
 vim.cmd("imap kj <Esc>")
 vim.cmd("vmap kj <Esc>")
