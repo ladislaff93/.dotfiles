@@ -132,7 +132,8 @@ function _M.get()
         {modkey},
         'r',
         function()
-            awful.spawn('rofi -combi-modi window,drun -show combi -modi combi')
+            -- awful.spawn('rofi -combi-modi window,drun -show combi -modi combi')
+            awful.spawn('ulauncher')
         end,
         {description = 'Main menu', group = 'awesome'}
     ),
