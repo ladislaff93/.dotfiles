@@ -5,6 +5,7 @@ return {
     dependencies = {
       "rafamadriz/friendly-snippets",
       "saadparwaiz1/cmp_luasnip",
+      "onsails/lspkind.nvim"
     },
     config = function()
       require("luasnip.loaders.from_vscode").lazy_load()

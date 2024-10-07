@@ -22,7 +22,7 @@ theme                                         = {}
 theme.dir                                     = os.getenv("HOME") .. "/.config/awesome/themes/macos-dark"
 theme.wallpaper                               = os.getenv("HOME") .. "/.config/awesome/themes/macos-dark/80s-retro-tropical-sunset-by-freepik.jpg"
 
-theme.font                                    = "SNFS Display UltraLight 8"
+theme.font                                    = "SNFS Display UltraLight 9"
 theme.fg_normal                               = "#ffffff"
 theme.fg_focus                                = "#ffffff"
 theme.bg_normal                               = "#202020A0"
