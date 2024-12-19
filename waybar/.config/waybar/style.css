@@ -1,19 +1,17 @@
 @import "mocha.css"; 
 
 * {
-    font-family: "JetBrainsMono Nerd Font Mono";
-    font-size: 13px;
+    font-family: "JetBrainsMono Nerd Font Propo";
+    font-size: 14px;
     min-height: 0;
     font-weight: bold;
 }
 
 window#waybar {
     background: transparent;
-    /* background-color: @crust; */
     color: @text;
     transition-property: background-color;
     transition-duration: 0.1s;
-    border-bottom: 1.5px solid @overlay1;
 }
 
 #window {
@@ -22,6 +20,8 @@ window#waybar {
     padding-right: 8;
 }
 
+
+/* workspace buttons */
 button {
     color: @text;
     box-shadow: inset 0 -3px transparent;
@@ -34,24 +34,72 @@ button:hover {
     border-top: 2px solid @blue;
 }
 
+#workspaces {
+    background-color: rgba(88,91,112,0.3);
+    border-radius: 20px 20px 20px 20px;
+    border-bottom: 2px solid @blue;
+    border-left: 1.5px solid @blue;
+    border-right: 1.5px solid @blue;
+}
+
 #workspaces button {
     padding: 0 4px;
 }
 
 #workspaces button.focused {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(88,91,112,0.3);
     color: @rosewater;
     border-top: 2px solid @rosewater;
 }
 
-#workspaces button.active {
-    background-color: rgba(0, 0, 0, 0.3);
-    color: @blue;
-    border-top: 2px solid @blue;
-}
 
 #workspaces button.urgent {
     background-color: #eb4d4b;
+}
+
+#workspaces button.active {
+    background-color: rgba(88,91,112,0.3);
+    color: @blue;
+    /* border-top: 1px solid @blue; */
+}
+
+#workspaces button.active:last-child {
+    border-radius: 0px 20px 20px 0px;
+    /* padding-right: 5px; */
+}
+
+#workspaces button.active:first-child {
+    border-radius: 20px 0px 0px 20px;
+    /* padding-left: 5px; */
+}
+
+/* *********************************************** */
+
+
+.modules-right {
+    border-radius: 20px 0px 0px 20px;
+    background-color: rgba(88,91,112,0.3);
+    border-bottom: 2px solid @blue;
+    border-left: 1.5px solid @blue;
+    /* padding-left: 5px; */
+}
+
+.modules-left {
+    border-radius: 0px 20px 20px 0px;
+    background-color: rgba(88,91,112,0.3);
+    border-bottom: 2px solid @blue;
+    border-right: 1.5px solid @blue;
+    /* padding-right: 5px; */
+}
+
+.modules-center {
+    /* background-color: rgba(88,91,112,0.3); */
+    /* border-radius: 20px 20px 20px 20px; */
+    /* border-bottom: 2px solid @blue; */
+    /* border-left: 1.5px solid @blue; */
+    /* border-right: 1.5px solid @blue; */
+    /* padding-right: 5px; */
+    /* padding-left: 5px; */
 }
 
 #pulseaudio,
@@ -64,89 +112,33 @@ button:hover {
 #backlight,
 #clock,
 #tray {
-  background-color: @surface0;
-  margin-top: 0px;
-  margin-bottom: 1px;
-  margin-left: -4px;
-  margin-right: -4px;
-  padding-left: 10px;
-  padding-right: 10px;
-  color: @text;
-  /* border-right: 0.9px solid @overlay1; */
+    padding-left: 7px;
+    padding-right: 7px;
 }
 
-/* #pulseaudio { */
-/*   color: @blue; */
-/*   padding-right: 3px; */
-/* } */
-
-/* #network { */
-/*   padding-left: 7px; */
-/*   padding-right: 7px; */
-/*   color: @yellow; */
-/* } */
-
-/* #cpu { */
-/*   padding-left: 7px; */
-/*   padding-right: 7px; */
-/*   color: @yellow; */
-/* } */
-
-/* #memory { */
-/*   padding-left: 7px; */
-/*   padding-right: 7px; */
-/*   color: @yellow; */
-/* } */
-
-/* #temperature { */
-/*   padding-left: 7px; */
-/*   color: @yellow; */
-/* } */
-
-/* #battery { */
-/*   padding-left: 7px; */
-/*   padding-right: 7px; */
-/*   color: @green; */
-/* } */
-
-/* #backlight { */
-/*   padding-left: 7px; */
-/*   padding-right: 7px; */
-/*   color: @yellow; */
-/* } */
-
-/* #keyboard-state { */
-/*   color: @yellow; */
-/* } */
-
-/* #clock { */
-/*   padding-left: 7px; */
-/*   padding-right: 7px; */
-/*   color: @maroon; */
-/* } */
-
-/* #clock.date { */
-/*   padding-left: 7px; */
-/*   padding-right: 7px; */
-/*   color: @mauve; */
-/* } */
+#custom-power {
+    font-size: 20px;
+    font-weight: bold;
+    padding-right: 10px;
+    color: @red;
+}
 
 #idle_inhibitor {
-  margin-right: 12px;
-  color: #7cb342;
+    margin-right: 12px;
+    color: #7cb342;
 }
 
 #idle_inhibitor.activated {
-  color: @red;
+    color: @red;
 }
 
 
 /* If workspaces is the leftmost module, omit left margin */
 .modules-left>widget:first-child>#workspaces {
-  margin-left: 0;
+    margin-left: 0;
 }
 
 /* If workspaces is the rightmost module, omit right margin */
 .modules-right>widget:last-child>#workspaces {
-  margin-right: 0;
+    margin-right: 0;
 }

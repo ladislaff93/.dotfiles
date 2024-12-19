@@ -1,33 +1,42 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 25,
-    "spacing": 4, // Gaps between modules (4px)
-    "modules-left": ["hyprland/workspaces", "custom/media"],
-    "modules-center": ["hyprland/window"],
-    "modules-right": [
-        "pulseaudio",
-        "network",
-        "power-profiles-daemon",
+    "height": 32,
+    "spacing": 4,
+    "modules-left": [
+        //"custom/media",
         "cpu",
         "memory",
         "temperature",
-        "sway/language",
         "battery",
+    ],
+    "modules-center": [
+        "hyprland/window",
+        "hyprland/workspaces",
+    ],
+    "modules-right": [
+        "pulseaudio",
         "backlight",
+        "network",
+        "power-profiles-daemon",
+        "sway/language",
         "clock",
         "tray",
         "custom/power"
     ],
-
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
         "warp-on-scroll": false,
-        "format": "{name}",
-    },
-    "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
+        "format": " {icon} ",
+        "format-icons": {
+          "active": "",
+          "urgent": "",
+          "default": ""
+        },
+        "persistent-workspaces": {
+          "*": [ 1, 2, 3, 4 ],
+        },
     },
     "tray": {
         // "icon-size": 21,
@@ -60,11 +69,11 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% {icon}",
-        "format-full": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
+        "format": "{capacity}% {icon} ",
+        "format-full": "{capacity}% {icon} ",
+        "format-charging": "{capacity}%  ",
+        "format-plugged": "{capacity}%  ",
+        "format-alt": "{time} {icon} ",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": ["", "", "", "", ""]
@@ -90,7 +99,7 @@
     },
     "pulseaudio": {
         "scroll-step": 10, // %, can be a float
-        "format": "{volume}% {icon}",
+        "format": " {volume}% {icon}",
         "format-bluetooth": "{volume}% {icon} ",
         "format-bluetooth-muted": " {icon} ",
         "format-muted": "",
@@ -118,7 +127,7 @@
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
     "custom/power": {
-        "format" : "⏻ ",
+        "format" : "⏻",
 		"tooltip": false,
 		//"menu": "on-click",
 		//"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
