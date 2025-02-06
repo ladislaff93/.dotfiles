@@ -12,6 +12,8 @@ return {
                 ensure_installed = {
                     "lua_ls",
                     "rust_analyzer",
+                    "pyright",
+                    "jdtls"
                 },
             })
         end,
@@ -33,7 +35,7 @@ return {
             -- lspconfig.rust_analyzer.setup({
             --   capabilities = capabilities,
             -- })
-            lspconfig.jedi_language_server.setup({
+            lspconfig.pyright.setup({
                 capabilities = capabilities,
             })
 
