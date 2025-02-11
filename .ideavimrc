@@ -1,0 +1,48 @@
+" set <leader> to <space>
+let mapleader = " "
+
+set expandtab
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set smartindent
+set scrolloff=8
+set sidescrolloff=10  " keep some lines before and after the cursor visible
+set number
+set relativenumber
+
+set hlsearch                      " highlight search occurrences
+"set ignorecase                    " ignore case in search patterns
+set smartcase                     " no ignore case when pattern is uppercase
+set incsearch                     " show search results while typing
+set wrapscan                      " searches wrap around the end of the file
+
+set history=10000                 " keep x lines of command line history
+set clipboard=unnamedplus,unnamed,ideaput " integrate with system clipboard
+"This unsets the "last search pattern" register by hitting return
+nnoremap <CR> :noh<CR><CR>
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+" Commentary plugin
+Plug 'tpope/vim-commentary'
+
+imap kj <Esc>
+set timeoutlen=500
+" IDEA specific
+nmap <leader>d <Action>(Debug)
+nmap <leader>cf <Action>(ReformatCode)
+nmap <leader>n <Action>(ActivateProjectToolWindow)
+nmap <leader>t <Action>(ActivateTerminalToolWindow)
+nmap <leader>g <Action>(GotoAction)
+nmap <leader>ff <Action>(GotoFile)
+nmap <leader>fg <Action>(FindInPath)
+nmap gr <Action>(ShowUsages)
+nmap gi <Action>(GotoImplementation)
+nmap gs <Action>(GotoSuperMethod)
+ 
+" change font size
+nmap <leader>+ <Action>(EditorIncreaseFontSize)
+nmap <leader>- <Action>(EditorDecreaseFontSize)
+nmap <leader>= <Action>(EditorResetFontSize)
+nmap <C-k> <Action>(QuickJavaDoc)
