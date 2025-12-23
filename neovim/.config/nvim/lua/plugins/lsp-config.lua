@@ -13,7 +13,8 @@ return {
                     "lua_ls",
                     "rust_analyzer",
                     "pyright",
-                    "jdtls"
+                    "jdtls",
+                    "jsonls"
                 },
             })
         end,
@@ -22,23 +23,72 @@ return {
         "neovim/nvim-lspconfig",
         config = function()
             require('spring_boot').init_lsp_commands()
+            require("lspconfig")
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
-            lspconfig = require("lspconfig")
-            lspconfig.jdtls.setup({
+
+            local on_attach = function(_, bufnr)
+                local opts = { buffer = bufnr, noremap = true, silent = true }
+
+                opts.desc = "Show line diagnostics"
+                vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
+
+                opts.desc = "Show documentation for what is under cursor"
+                vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+
+                opts.desc = "Go to definition"
+                vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions trim_text=true<cr>", opts)
+
+                opts.desc = "Go to references"
+                vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
+
+                opts.desc = "Go to implementation"
+                vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+
+                opts.desc = "Rename symbol"
+                vim.keymap.set("n", "<leader>cn", vim.lsp.buf.rename, opts)
+
+                opts.desc = "Code actions"
+                vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
+            end
+
+            -- Configure LSP servers
+            vim.lsp.config('jdtls', {
+                capabilities = capabilities,
                 init_options = {
                     bundles = require("spring_boot").java_extensions(),
                 }
             })
-            lspconfig.lua_ls.setup({
-                capabilities = capabilities,
-            })
-            -- lspconfig.rust_analyzer.setup({
-            --   capabilities = capabilities,
-            -- })
-            lspconfig.pyright.setup({
+
+            vim.lsp.config('lua_ls', {
                 capabilities = capabilities,
             })
 
+            vim.lsp.config('pyright', {
+                capabilities = capabilities,
+            })
+
+            vim.lsp.config('jsonls', {
+                capabilities = capabilities,
+            })
+
+            vim.lsp.config('sourcekit', {
+                capabilities = capabilities,
+                on_attach = on_attach,
+                root_dir = function(_, callback)
+                    callback(
+                        require("lspconfig.util").root_pattern("Package.swift")(vim.fn.getcwd())
+                        or require("lspconfig.util").find_git_ancestor(vim.fn.getcwd())
+                    )
+                end,
+                cmd = { vim.trim(vim.fn.system("xcrun -f sourcekit-lsp")) }
+            })
+
+            -- Enable LSP servers
+            vim.lsp.enable('jdtls')
+            vim.lsp.enable('lua_ls')
+            vim.lsp.enable('pyright')
+            vim.lsp.enable('jsonls')
+            vim.lsp.enable('sourcekit')
             vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
                 vim.lsp.diagnostic.on_publish_diagnostics,
                 {

@@ -11,10 +11,11 @@ vim.cmd("set smartindent")
 vim.cmd("set scrolloff=8")
 vim.cmd("set clipboard=unnamedplus")
 
+vim.opt.winborder = "rounded"
 vim.cmd("imap kj <Esc>")
 vim.cmd("vmap kj <Esc>")
 
-vim.o.guifont = "JetBrainsMono Nerd Font Mono"
+-- vim.o.guifont = "JetBrainsMono Nerd Font Mono"
 
 vim.cmd("nnoremap <CR> :noh<CR><CR>")
 
