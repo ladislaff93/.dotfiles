@@ -46,6 +46,17 @@ return {
             { "gd", desc = "Go To Definition" },
             { "gr", desc = "Go To References" },
             { "gi", desc = "Go To Implementation" },
+
+            -- Marks
+            { "m", group = "Marks" },
+            { "mx", desc = "Set mark x", mode = "n" },
+            { "m,", desc = "Set next available mark", mode = "n" },
+            { "m;", desc = "Toggle mark on current line", mode = "n" },
+            { "m]", desc = "Next mark", mode = "n" },
+            { "dm", group = "Delete Mark" },
+            { "dmx", desc = "Delete mark x", mode = "n" },
+            { "dm-", desc = "Delete all marks on current line", mode = "n" },
+            { "dm<space>", desc = "Delete all marks in buffer", mode = "n" },
         })
     end
 }

@@ -10,9 +10,14 @@ return {
     },
     config = function()
         require("xcodebuild").setup({
-            show_build_progress_bar = false,
+            show_build_progress_bar = true,
             code_coverage = {
                 enabled = true,
+            },
+            integration = {
+                xcode_build_server = {
+                    enabled = true, -- run "xcode-build-server config" when scheme changes
+                },
             },
             logs = {
                 notify = function(message, severity)
@@ -58,7 +63,8 @@ return {
 
         vim.keymap.set("n", "<leader>xl", "<cmd>XcodebuildToggleLogs<cr>", { desc = "Toggle Xcodebuild Logs" })
         vim.keymap.set("n", "<leader>xc", "<cmd>XcodebuildToggleCodeCoverage<cr>", { desc = "Toggle Code Coverage" })
-        vim.keymap.set("n", "<leader>xC", "<cmd>XcodebuildShowCodeCoverageReport<cr>", { desc = "Show Code Coverage Report" })
+        vim.keymap.set("n", "<leader>xC", "<cmd>XcodebuildShowCodeCoverageReport<cr>",
+            { desc = "Show Code Coverage Report" })
         vim.keymap.set("n", "<leader>xe", "<cmd>XcodebuildTestExplorerToggle<cr>", { desc = "Toggle Test Explorer" })
         vim.keymap.set("n", "<leader>xs", "<cmd>XcodebuildFailingSnapshots<cr>", { desc = "Show Failing Snapshots" })
 
@@ -70,8 +76,6 @@ return {
         vim.keymap.set("n", "<leader>xa", "<cmd>XcodebuildCodeActions<cr>", { desc = "Show Code Actions" })
 
         vim.keymap.set("n", "<leader>xP", "<cmd>XcodebuildPreviewGenerateAndShow<cr>", { desc = "Show Preview" })
-
     end,
 
 }
-
