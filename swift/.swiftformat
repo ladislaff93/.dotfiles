@@ -1,0 +1,4 @@
+# Opening braces should be preceded by a single space and on the same line
+--allman false
+--elseposition same-line
+--guardelse same-line
